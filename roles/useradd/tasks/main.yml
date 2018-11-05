@@ -1,0 +1,5 @@
+---
+  - name: user add
+    user:
+      name: sysadmin
+      shell: /bin/bash
