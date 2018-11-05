@@ -1,23 +1,24 @@
 $samplescript = <<-SCRIPT
-yum install -y httpd
-systemctl enable httpd
-systemctl start httpd
+yum install -y docker
+systemctl enable docker
+systemctl start docker
 SCRIPT
 #
 Vagrant.configure(2) do |config|
-  config.vm.define "DockerLab02" do |DockerLab02|
-    config.vm.box = "centos/7"
-    config.vm.hostname = "DockerLab02"
-    config.vm.network "private_network", type: "dhcp",
+                   
+  config.vm.define "DockerLab02" do |dockerLab02|
+    dockerLab02.vm.box = "centos/7"
+    dockerLab02.vm.hostname = "DockerLab02"
+    dockerLab02.vm.network "private_network", type: "dhcp",
       virtualbox__vboxnet2: true,
       auto_config: false
   
-    config.vm.provision "shell", inline: $samplescript
-#    config.vm.synced_folder "src/", "/var/www/html", owner:"sysadmin", group:"sysadmin"
-    config.vm.provision "ansible" do |ansible|
+    dockerLab02.vm.provision "shell", inline: $samplescript
+#    dockerLab02.vm.synced_folder "src/", "/var/www/html", owner:"sysadmin", group:"sysadmin"
+    dockerLab02.vm.provision "ansible" do |ansible|
       ansible.playbook = "playbook.yml"
     end
-    config.vm.provider "virtualbox" do |vb|
+    dockerLab02.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       vb.cpus = "1"
     end
