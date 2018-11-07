@@ -1,0 +1,6 @@
+---
+- name: install docker httpd images
+  docker_container:
+    name: webclient
+    image: docker.io/httpd
+    published_ports: 80:80

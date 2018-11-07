@@ -1,0 +1,7 @@
+---
+- name: Log into DockerHub using a custom config file
+  docker_login:
+    username: rhlw
+    password: rick0423
+    email: rickhlwong@gmail.com
+

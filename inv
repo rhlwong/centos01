@@ -1,0 +1,4 @@
+[DevOpsLab]
+#DockerWeb01 127.0.0.1 ansible_port=2222 ansible_user=vagrant
+#DockerWeb02 127.0.0.1 ansible_port=2223 ansible_user=vagrant
+#DockerDB01 127.0.0.1 ansible_port=2224 ansible_user=vagrant
